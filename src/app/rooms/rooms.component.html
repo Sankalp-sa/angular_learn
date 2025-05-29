@@ -1,0 +1,41 @@
+<h1>Hotal name 
+{{hotelName}}</h1> 
+
+<div [hidden]="isVisible">
+<div [innerText]="numberOfRooms"></div>
+</div>
+
+<!-- <div *ngIf="rooms?.availableRooms">
+    Room list
+    <ul>
+        <li *ngFor="let room of roomList">
+            {{room.roomType}} - {{room.price}} - {{room.amenities}}
+        </li>
+    </ul>
+</div> -->
+
+{{rooms$ | async | json}}
+
+<h1>
+    No of rooms: {{roomCount$ | async}}
+</h1>
+
+<div *ngIf="selectedRoom">
+    {{ selectedRoom | json }}
+</div>
+
+<div>
+    <button (click)="addRoom()">Add Room</button>
+</div>
+
+<app-rooms-list [roomDetails]="rooms" [Rooms]="rooms$ |async" (SelectedRoom)="selectRoom($event)"></app-rooms-list>
+
+<button (click)="toggle()">Toogle</button>
+
+<button (click)="editRoom()">Edit Room</button>
+
+<button type="button" class="btn btn-primary"
+        tooltip="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Simple demo
+</button>
+

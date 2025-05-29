@@ -1,0 +1,12 @@
+<p>rooms-list works!</p>
+
+<div *ngIf="roomDetails?.availableRooms">
+    Room list
+    <ul>
+        <li *ngFor="let room of Rooms">
+            {{room.roomType}} - {{room.price}} - {{room.amenities}} - <button
+                (click)="selectRoom(room)"
+            >Select Room</button>
+        </li>
+    </ul>
+</div>
